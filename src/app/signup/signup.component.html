@@ -1,0 +1,47 @@
+<div class="signUp">
+  <div class="signUp__body">
+    <h1>SopranoGram</h1>
+    <form [formGroup]="signUpForm">
+      <mat-form-field appearance="fill">
+        <mat-label>Name</mat-label>
+        <input formControlName="name" matInput type="email" />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Email address</mat-label>
+        <input formControlName="email" matInput type="email" />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Password</mat-label>
+        <input formControlName="password" matInput type="password" />
+      </mat-form-field>
+      <!-- TODO  -->
+      <div class="signUp__body-photo">
+        <input
+          (change)="photoChange($event)"
+          type="file"
+          id="file"
+          class="file"
+          enctype="multipart/form-data"
+          accept="image/*"
+        />
+        <label for="file">
+          Select Photo
+          <p class="file-name"></p>
+        </label>
+      </div>
+      <button
+        (click)="signUp()"
+        mat-flat-button
+        color="primary"
+        [disabled]="!this.signUpForm.valid"
+      >
+        Register
+      </button>
+    </form>
+    <br />
+    <p>
+      Already have an account?
+      <a [routerLink]="'/login'"> Login </a>
+    </p>
+  </div>
+</div>

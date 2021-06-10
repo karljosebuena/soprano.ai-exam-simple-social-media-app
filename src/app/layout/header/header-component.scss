@@ -1,0 +1,29 @@
+.header {
+  // border: 1px solid  red;
+  // background-color: #F3F2EE;
+  display: flex;
+  justify-content: center;
+
+  .header__content {
+    // border: 1px solid purple;
+    // background-color: #FFFFFF;
+    padding: 5px 10px;
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  form {
+    flex: .5;
+
+    mat-form-field {
+      width: 100%;
+    }
+  }
+
+  .header__content {
+    cursor: pointer;
+  }
+}

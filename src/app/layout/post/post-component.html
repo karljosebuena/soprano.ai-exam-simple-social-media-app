@@ -1,0 +1,39 @@
+<div class="post">
+  <div class="post__form">
+    <div class="circle">
+      <span class="initials">{{userInitial}}</span>
+    </div>
+    <form [formGroup]="postForm">
+      <mat-form-field class="example-full-width">
+        <mat-label>Start Post</mat-label>
+        <!-- <input formControlName="post" type="text" matInput /> -->
+        <textarea
+          matInput
+          cdkTextareaAutosize
+          #autosize="cdkTextareaAutosize"
+          cdkAutosizeMinRows="1"
+          cdkAutosizeMaxRows="5"
+          formControlName="post"
+        ></textarea>
+        <mat-icon (click)="savePost()" matSuffix>send</mat-icon>
+      </mat-form-field>
+    </form>
+  </div>
+  <div *ngFor="let post of posts" class="post__posts">
+    <div class="post__posts-content">
+      <h1>
+        {{post.post}}
+        <mat-icon *ngIf="post.editable" (click)="editPost(post)" matSuffix
+          >edit</mat-icon
+        >
+      </h1>
+      <p *ngIf="!post.updated">
+        {{post.created?.when | date: 'short'}} by {{post.created?.user}}
+      </p>
+      <p *ngIf="post.updated">
+        {{post.updated?.when | date: 'short'}} by {{post.updated?.user}}
+      </p>
+    </div>
+    <span *ngIf="post.editable" (click)="deletePost(post._id || '')">x</span>
+  </div>
+</div>

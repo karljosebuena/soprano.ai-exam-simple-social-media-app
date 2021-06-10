@@ -1,0 +1,21 @@
+<div class="login">
+  <div class="login__body">
+    <h1>SopranoGram</h1>
+    <form [formGroup]="loginForm">
+      <mat-form-field appearance="fill">
+        <mat-label>Email address</mat-label>
+        <input formControlName="email" matInput type="email" />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Password</mat-label>
+        <input formControlName="password" matInput type="password" />
+      </mat-form-field>
+      <button (click)="login()" mat-flat-button color="primary" [disabled]="!this.loginForm.valid">Login</button>
+    </form>
+    <br />
+    <p>
+      Don't have an account?
+      <a [routerLink]="'/signup'"> Sign up </a>
+    </p>
+  </div>
+</div>

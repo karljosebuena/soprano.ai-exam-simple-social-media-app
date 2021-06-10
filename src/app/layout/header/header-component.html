@@ -1,0 +1,15 @@
+<div class="header">
+  <div class="header__content">
+    <h1>SopranoGram</h1>
+    <form class="header__content-search">
+      <mat-form-field class="example-full-width">
+        <mat-label>Search Post</mat-label>
+        <input type="text" matInput [formControl]="searchFilter" />
+        <mat-icon matSuffix>search</mat-icon>
+      </mat-form-field>
+    </form>
+    <div class="header__content-icons">
+      <mat-icon (click)="logout()" aria-hidden="false">logout</mat-icon>
+    </div>
+  </div>
+</div>
